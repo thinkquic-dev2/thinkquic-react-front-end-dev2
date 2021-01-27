@@ -1,0 +1,14 @@
+.main{
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  background: #dfdfdf;
+  width: calc(100vw - 4rem);
+  height: calc(100vh - 4rem);
+  display: flex;
+
+  @media (max-width: 767px){
+    left: 0;
+    width: 100vw;
+  }
+}

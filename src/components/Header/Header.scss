@@ -1,0 +1,91 @@
+.header{
+  position: fixed;
+  height: 4rem;
+  width: 100vw;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 5;
+
+  &__menu-toggle{
+    border: 1px solid;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    display: none;
+    margin-left: auto;
+
+    @media(max-width: 767px){
+      display: block;
+    }
+  }
+
+  &__collapse{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    
+    @media (max-width: 767px){
+      overflow: hidden;
+      height: 0;
+      position: fixed;
+      top: 4rem;
+      left: 0;
+      width: 100vw;
+      flex-direction: column;
+      align-items: center;
+      transition: height 200ms;
+
+      &--active{
+        height: calc(100vh - 4rem);
+      }
+    }
+  }
+
+  &__brand{
+    display: flex;
+    align-items: center;
+  }
+
+  &__brand-logo{
+    height: 3rem;
+    @media(max-width: 767px){
+      height: 1rem;
+    }
+  }
+
+  &__brand-text{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin: 0 1rem;
+
+    @media(max-width: 767px){
+      font-size: 1rem;
+      margin: 0 .2rem;
+    }
+  }
+
+  &__user-utilities{
+    display: flex;
+    align-items: center;
+    @media (max-width: 767px){
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      width: 100%;
+    }
+  }
+
+  &__item{
+    @media (max-width: 767px){
+      padding: 1rem 0;
+      width: 100%;
+    }
+    &--right{
+      margin-left: auto;
+    }
+  }
+}

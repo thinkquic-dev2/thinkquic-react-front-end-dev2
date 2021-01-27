@@ -1,0 +1,8 @@
+{
+  "Result": {
+    "Doc1": {
+      "Greeeting": "Hello, Welcome to ThinkQuic. How can I help you today.To get started, you can say something from the following.",
+      "Options": ["SEARCH", "FILTER", "AGGREGATE"]
+    }
+  }
+}

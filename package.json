@@ -1,0 +1,52 @@
+{
+  "name": "thinkquic-prototype",
+  "version": "0.1.0",
+  "homepage": ".",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.3.7",
+    "@material-ui/core": "^4.11.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "ag-grid-community": "^24.0.0",
+    "ag-grid-react": "^24.0.0",
+    "amazon-cognito-identity-js": "^4.5.5",
+    "aws-amplify": "^3.3.14",
+    "aws-amplify-react": "^4.2.18",
+    "aws-appsync": "^4.0.2",
+    "aws-sdk": "^2.812.0",
+    "chart.js": "^2.9.3",
+    "graphql": "^15.4.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^2.10.0",
+    "react-dom": "^16.13.1",
+    "react-dom-factories": "^1.0.2",
+    "react-dropzone": "^11.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "xlsx": "^0.16.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

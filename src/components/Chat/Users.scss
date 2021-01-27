@@ -1,0 +1,29 @@
+.user-list {
+    // height: auto;
+    // max-height: 30vh !important;
+    // overflow-x: hidden !important;
+    // overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border-bottom: 1px solid #3f3f3f;
+}
+
+.list-info {
+    border-bottom: 4px;
+    font-size: 14px;
+}
+
+.bg {
+    background-color: #e6e6e6;
+}
+
+.list-group-item {
+    background-color: white;
+}
+
+.list-group-item:hover {
+    color: rgb(0, 0, 0)!important;
+    background-color: #000000!important;
+    border-radius: 0;
+}

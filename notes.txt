@@ -1,0 +1,54 @@
+objectOne
+{
+  price: 9800000,
+  area: 5750,
+  bedrooms: 3,
+  bathrooms: 2,
+  stories: 4,
+  mainroad: "yes",
+  guestroom: "yes",
+  basement: "no",
+  hotwaterheating: "no",
+  airconditioning: "yes",
+  parking: 1,
+  prefarea: "yes",
+  furnishingstatus: "unfurnished",
+};
+
+objectTwo
+{
+  price_maximum: {
+    value: 13300000.0,
+  },
+}
+
+objectThree
+{
+  propertyOne: {
+    value: 13300000.0,
+    bedrooms: 3
+  },
+  propertyTwo: {
+    value: 10000000.0,
+    bedrooms: 4
+  },
+}
+
+getrecords
+[
+  {
+    item: "jeans",
+    quantityOnHand: 12,
+    quantitySold: 20,
+  },
+  {
+    item: "shirts",
+    quantityOnHand: 34,
+    quantitySold: 7,
+  },
+  {
+    item: "ties",
+    quantityOnHand: 28,
+    quantitySold: 12,
+  },
+]

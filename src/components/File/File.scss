@@ -1,0 +1,27 @@
+.file{
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem;
+  padding: .5rem;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  transition: background 500ms;
+  overflow: hidden;
+
+  &:hover{
+    background: white;
+  }
+
+  &__icon{
+    margin-right: .5rem;
+    svg{
+      width: 24px;
+      fill: gray;
+    }
+  }
+
+  &__name{
+    white-space: nowrap;
+  }
+}

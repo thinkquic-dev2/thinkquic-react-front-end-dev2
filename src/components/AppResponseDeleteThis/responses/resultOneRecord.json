@@ -1,0 +1,19 @@
+{
+  "Result": {
+    "Doc1": {
+      "price": 9800000,
+      "area": 5750,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "stories": 4,
+      "mainroad": "yes",
+      "guestroom": "yes",
+      "basement": "no",
+      "hotwaterheating": "no",
+      "airconditioning": "yes",
+      "parking": 1,
+      "prefarea": "yes",
+      "furnishingstatus": "unfurnished"
+    }
+  }
+}

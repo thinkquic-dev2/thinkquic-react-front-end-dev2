@@ -1,0 +1,87 @@
+{
+  "Result": {
+    "Chart": {
+      "Aggregations": [
+        {
+          "Aggregation1": {
+            "statistics": {
+              "stats_key": "rice",
+              "stats": {
+                "count": 1090,
+                "minimum": 1750000,
+                "maximum": 13300000,
+                "average": 4766729.247706422,
+                "sum": 5195734880
+              }
+            }
+          }
+        },
+        {
+          "Aggregation2": {
+            "statistics": {
+              "stats_key": "area",
+              "stats": {
+                "maximum": 13300000
+              }
+            }
+          }
+        }
+      ],
+      "Data": [
+        {
+          "Doc1": 
+          {
+              "area": 7420, 
+              "price": 13300000
+          }
+        },
+        {
+          "Doc2": 
+          {
+              "area": 8960, 
+              "price": 12250000
+          }
+        }
+      ]
+    },
+    "Button": 
+    [
+        {
+            "Button1": 
+            {
+                "key": "search",
+                "value": "search"
+            }
+        },
+        {
+            "Button2": 
+            {
+                "key": "filter",
+                "value": "filter"
+            }
+        },
+        {
+            "Button3": 
+            {
+                "key": "aggregation",
+                "value": "aggregation"
+            }
+        }
+    ],
+    "Text":
+    [
+        {
+            "Text1": 
+            {
+                "value": "Something important"
+            }
+        },
+        {
+            "Text2": 
+            {
+                "value": "Some notification"
+            }
+        }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+.theme-options{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 0;
+  overflow: hidden;
+  background: #cfcece;
+  opacity: 0;
+  transition: width 500ms, opacity 500ms ease-in-out;
+
+  &--visible{
+    width: 15rem;
+    opacity: 1;
+
+    .theme-options__option{
+      opacity: 1;
+    }
+  }
+
+  &__header{
+    display: flex;
+    background: transparent;
+    padding: .5rem;
+  }
+
+  &__heading{
+    font-weight: bold;
+  }
+
+  &__close-button{
+    border: none;
+    margin-left: auto;
+    border-radius: 5px;
+    background: #FF4747;
+
+    svg{
+      width: 24px;
+      fill: white;
+    }
+  }
+
+  &__option{
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+    border: 0;
+    background: transparent;
+    padding: .5rem;
+    display: flex;
+    justify-content: flex-start;
+    transition: background 500ms, color 500ms;
+
+    &:hover{
+      background: gray;
+      color: white;
+
+      svg{
+        fill: white;
+      }
+    }
+
+    svg{
+      margin-left: auto;
+      width: 24px;
+      fill: black;
+      transition: fill 500ms;
+    }
+  }
+}

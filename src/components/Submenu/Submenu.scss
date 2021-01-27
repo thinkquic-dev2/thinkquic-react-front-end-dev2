@@ -1,0 +1,16 @@
+.submenu{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: calc(100vh - #{$headerHeight});
+  width: 0;
+  transition: width #{$transitionSpeed};
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-item:hover{
+  .submenu{
+    width: $sidebarWidthExpanded;
+  }
+}

@@ -1,0 +1,21 @@
+.options-message{
+  &__texts{
+    padding: 1rem 0;
+    max-width: 50vw;
+  }
+  &__options{
+    display: flex;
+    justify-content: center;
+  }
+  &__option{
+    &--disabled{
+      opacity: .3;
+      transition: opacity 500;
+      
+      &:hover{
+        opacity: 1;
+      }
+      
+    }
+  }
+}

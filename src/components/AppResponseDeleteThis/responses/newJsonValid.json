@@ -1,0 +1,71 @@
+{
+  "Result": {
+    "Chart": {
+      "Aggregations": [
+        {
+          "Aggregation1": {
+            "statistics": {
+              "stats_key": "rice",
+              "stats": {
+                "count": 1090,
+                "minimum": 1750000,
+                "maximum": 13300000,
+                "average": 4766729.247706422,
+                "sum": 5195734880
+              }
+            }
+          }
+        },
+        {
+          "Aggregation2": {
+            "statistics": {
+              "stats_key": "area",
+              "stats": {
+                "maximum": 13300000
+              }
+            }
+          }
+        }
+      ],
+    
+      "Data": [
+        {
+          "Doc1": 
+          {
+              "area": 7420, 
+              "price": 13300000
+          }
+        },
+        {
+          "Doc2": 
+          {
+              "area": 8960, 
+              "price": 12250000
+          }
+        }
+      ]
+    },
+    "Message": [
+      {
+        "Text": "This is just some text with no options to do anything else"
+      },
+      {
+        "Text": "What would you like to do next?",
+        "Buttons": [
+          {
+            "Text": "Search",
+            "Value": "some value for search button"
+          },
+          {
+            "Text": "Aggregate",
+            "Value": "some value for aggregate button"
+          },
+          {
+            "Text": "Filter",
+            "Value": "some text for filter button"
+          }
+        ]
+      }
+    ]
+  }
+}

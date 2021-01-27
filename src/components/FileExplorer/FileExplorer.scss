@@ -1,0 +1,62 @@
+.file-explorer{
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, .8);
+  // backdrop-filter: blur(2px);
+  z-index: 3;
+}
+
+.file-explorer__container{
+  background: white;
+  height: 70%;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.file-explorer__control{
+  flex-basis: 54px;
+  padding: 0 1rem;
+  background:rgba(204,204,204,1);
+}
+.file-explorer__files-container{
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  
+  &::-webkit-scrollbar{
+    width: .5rem;
+  }
+  &::-webkit-scrollbar-track{
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,.2);
+    border-radius: 5px;
+  }
+}
+.file-explorer__close-button{
+  margin: .5rem;
+  svg{
+    width: 1rem;
+    fill: white;
+  }
+}
+.file-explorer__breadcrumb{
+  background-color: inherit;
+}
+.file-explorer__crumb{
+  padding-right: .25rem!important;
+}
+.file-explorer__crumb:not(.active):hover{
+  text-decoration: none;
+}

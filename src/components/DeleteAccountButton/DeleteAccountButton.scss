@@ -1,0 +1,11 @@
+.delete-account-button{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  opacity: .3;
+  z-index: 300;
+
+  &:hover{
+    opacity: 1;
+  }
+}

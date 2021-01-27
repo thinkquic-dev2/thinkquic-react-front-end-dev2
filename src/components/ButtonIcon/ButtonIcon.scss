@@ -1,0 +1,27 @@
+.button-icon{
+  border: 1px solid #4C4C4C;
+  background: transparent;
+  border-radius: 5px;
+  margin: 0 .25rem;
+  transition: background 300ms; color: 300ms;
+
+  &:hover{
+    background: #4C4C4C;
+    color: white;
+
+    svg{
+      fill: white;
+    }
+  }
+
+  &:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  }
+
+  svg{
+    height: 24px;
+    fill: #4C4C4C;
+    transition: fill 300ms;
+  }
+}

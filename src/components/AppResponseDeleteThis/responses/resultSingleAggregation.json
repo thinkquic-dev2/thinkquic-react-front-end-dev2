@@ -1,0 +1,16 @@
+{
+  "Result": {
+    "Aggregation1": {
+      "statistics": {
+        "stats_key": "price",
+        "stats": {
+          "count": 1090,
+          "min": 1750000,
+          "max": 13300000,
+          "avg": 4766729.247706422,
+          "sum": 5195734880
+        }
+      }
+    }
+  }
+}
