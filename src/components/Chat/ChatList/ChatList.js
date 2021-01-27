@@ -1,5 +1,6 @@
-import { Auth } from "aws-amplify";
-import React, { useEffect } from "react";
+import React from "react";
+import ChatInput from "../ChatInput/ChatInput";
+import ChatMessageView from "../ChatMessage/ChatMessageView";
 import ConversationList from "../ConvoList/ConversationList";
 import "./ChatList.scss";
 
@@ -28,6 +29,8 @@ const ChatList = (props) => {
         </button>
       </div>
       <ConversationList />
+      <ChatMessageView />
+      <ChatInput />
     </div>
   );
 };

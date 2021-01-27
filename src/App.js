@@ -121,7 +121,7 @@ function App() {
     const getToken = async () => {
       //const session = await Auth.currentSession();
       //console.log(session.getIdToken().getJwtToken());
-      console.log(registrationStatus, isLoggedIn, cognitoUser);
+      //console.log(registrationStatus, isLoggedIn, cognitoUser);
       const newuser = localStorage.getItem("usernew");
       if (registrationStatus === "verified" && isLoggedIn) {
         console.log(newuser);

@@ -11,64 +11,52 @@ class ConversationList extends Component {
   render() {
     const { username } = this.props;
     return (
-      <div>
-        {/* <div className="section-header">
-                    <h6 className='mb-0'><i className="ion-person-stalker" data-pack="default" data-tags="talk"></i> Conversations</h6>
-                </div> */}
-        <div className="convo-list">
-          <div className="list-group mb-2">
-            {username ? (
-              <Connect
-                query={graphqlOperation(queries.allMessageFrom, {
-                  id: username,
-                })}
-                subscription={graphqlOperation(
-                  subscriptions.subscribeToNewUCs,
-                  {
-                    userId: username,
-                  }
-                )}
-                onSubscriptionMsg={(prev, { subscribeToNewMessage }) => {
-                  try {
-                    prev.getUser.conversations.items.push(
-                      subscribeToNewMessage
-                    );
-                  } catch (e) {
-                    console.log(
-                      "Failed to merge user conversation subscription"
-                    );
-                  }
-                  return prev;
-                }}
-              >
-                {({ data, loading, error }) => {
-                  const { getUser } = data || {
-                    getUser: { conversations: [] },
-                  };
-                  console.log(getUser);
-                  if (error) return <h3>Error: {error}</h3>;
-                  let userConversations;
-                  try {
-                    userConversations = getUser.conversations.items;
-                  } catch (e) {
-                    userConversations = [];
-                  }
-                  if (loading || !userConversations) return <h3>Loading...</h3>;
-                  return userConversations.map((userConversation, i) => (
-                    <a
-                      key={i}
-                      className={this.conversationClassNames()}
-                      onClick={() =>
-                        this.props.onChatSelected(userConversation.conversation)
-                      }
-                    >
-                      {userConversation.conversation.name}
-                    </a>
-                  ));
-                }}
-              </Connect>
-            ) : null}
-          </div>
+      <div className="convo-list">
+        <div className="list-group mb-2">
+          {username ? (
+            <Connect
+              query={graphqlOperation(queries.me, {
+                id: username,
+              })}
+              subscription={graphqlOperation(subscriptions.subscribeToNewUCs, {
+                userId: username,
+              })}
+              onSubscriptionMsg={(prev, { subscribeToNewMessage }) => {
+                try {
+                  prev.getUser.conversations.items.push(subscribeToNewMessage);
+                } catch (e) {
+                  console.log("Failed to merge user conversation subscription");
+                }
+                return prev;
+              }}
+            >
+              {({ data, loading, error }) => {
+                const { getUser } = data || {
+                  getUser: { conversations: [] },
+                };
+                console.log(getUser);
+                if (error) return <h3>Error: {error}</h3>;
+                let userConversations;
+                try {
+                  userConversations = getUser.conversations.items;
+                } catch (e) {
+                  userConversations = [];
+                }
+                if (loading || !userConversations) return <h3>Loading...</h3>;
+                return userConversations.map((userConversation, i) => (
+                  <a
+                    key={i}
+                    className={this.conversationClassNames()}
+                    onClick={() =>
+                      this.props.onChatSelected(userConversation.conversation)
+                    }
+                  >
+                    {userConversation.conversation.name}
+                  </a>
+                ));
+              }}
+            </Connect>
+          ) : null}
         </div>
       </div>
     );
