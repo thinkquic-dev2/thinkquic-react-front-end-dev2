@@ -78,6 +78,7 @@ class ChatMessageView extends Component {
                     messages = [];
                   }
                   if (loading || !messages) return <h3>Loading...</h3>;
+                  console.log(messages);
                   return (
                     <div>
                       {messages.map((message, i) => (

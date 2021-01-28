@@ -7,6 +7,12 @@ import "./ChatList.scss";
 const ChatList = (props) => {
   const { isChatListVisible, toggleIsChatListVisible } = props;
 
+  const changeConversation = (conversation) => {
+    this.setState({
+      selectedConversation: conversation,
+    });
+  };
+
   const chatUserListClass = isChatListVisible
     ? "chat-list chat-list--visible"
     : "chat-list";
@@ -28,7 +34,7 @@ const ChatList = (props) => {
           {closeIcon}
         </button>
       </div>
-      <ConversationList />
+      <ConversationList changeConversation={changeConversation} />
       <ChatMessageView />
       <ChatInput />
     </div>

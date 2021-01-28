@@ -26,6 +26,7 @@ class ChatInput extends Component {
             onKeyUp={this.onKeyUp}
             onChange={(e, t) => {
               this.setState({ text: e.target.value });
+              console.log(this.state.text);
             }}
           />
           <span className="input-group-btn">

@@ -84,6 +84,7 @@ class Users extends Component {
 
   createNewConversation = async (user) => {
     await CreateConversation(user.username, this.context.username);
+    console.log(user);
   };
 }
 
