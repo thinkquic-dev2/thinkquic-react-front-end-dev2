@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { graphqlOperation } from "aws-amplify";
 import { Connect } from "aws-amplify-react";
-import AuthContext from "../../AuthContext";
+import AppContext from "../../AppContext";
 import * as queries from "../../graphql/queries";
 import * as subscriptions from "../../graphql/subscriptions";
 import { CreateConversation } from "../../mutationHelper";
@@ -10,11 +10,10 @@ import { Avatar } from "@material-ui/core";
 import "./Users.scss";
 
 class Users extends Component {
-  static contextType = AuthContext;
+  // static contextType = AppContext;
+  currUser = null;
   render() {
     const { username } = this.props;
-
-    console.log(this);
 
     return (
       <div>
@@ -46,10 +45,12 @@ class Users extends Component {
 
                 if (error) return <h3>Error: {error}</h3>;
                 if (loading || !allUsers) return <h3>Loading...</h3>;
-
                 let validUsers = allUsers?.filter(
                   (user) => user.username !== username
                 );
+                this.currUser = allUsers?.filter(
+                  (user) => user.username === username
+                )[0];
                 console.log(validUsers);
                 validUsers = validUsers ? validUsers : [];
                 const noUsers = validUsers?.length === 0;
@@ -83,7 +84,7 @@ class Users extends Component {
   }
 
   createNewConversation = async (user) => {
-    await CreateConversation(user.username, this.context.username);
+    await CreateConversation(user, this.currUser);
     console.log(user);
   };
 }

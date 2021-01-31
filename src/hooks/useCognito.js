@@ -114,12 +114,14 @@ const useCognito = ({ setMessages }) => {
         AWS.config.region = region;
 
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          IdentityPoolId: "us-west-2:a2cb5a9d-d728-4c5c-a96e-b2973d14c5e0", // your identity pool id here
+          IdentityPoolId: identityPoolId, // your identity pool id here
+
           Logins: {
             // Change the key below according to the specific region your user pool is in.
-            "cognito-idp.us-west-2.amazonaws.com/us-west-2_jseVZL1mh": result
-              .getIdToken()
-              .getJwtToken(),
+            ["cognito-idp." +
+            region +
+            ".amazonaws.com/" +
+            userPoolId]: result.getIdToken().getJwtToken(),
           },
         });
 

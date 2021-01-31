@@ -8,12 +8,13 @@ import awsmobile from "./aws-exports";
 import * as serviceWorker from "./serviceWorker";
 import AppContextProvider from "./AppContext";
 
-Amplify.configure({
-  ...awsmobile,
-  aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS",
-  jwtToken: async () =>
-    (await Auth.currentSession()).getIdToken().getJwtToken(),
-});
+Amplify.configure(aws_exports);
+// Amplify.configure({
+//   ...awsmobile,
+//   aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS",
+//   jwtToken: async () =>
+//     (await Auth.currentSession()).getIdToken().getJwtToken(),
+// });
 
 ReactDOM.render(
   <AppContextProvider>

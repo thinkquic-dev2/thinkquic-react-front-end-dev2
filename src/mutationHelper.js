@@ -1,5 +1,6 @@
 import * as mutations from "./graphql/mutations";
 import { graphqlOperation, Analytics, API } from "aws-amplify";
+import { v4 as uuidv4 } from "uuid";
 
 const assertErrors = (response) => {
   if (response && response.errors && response.errors.length > 0) {
@@ -26,34 +27,28 @@ export const CreateUser = async (user) => {
 
 export const CreateConversation = async (user1, user2) => {
   try {
-    const members = [user1, user2].sort();
+    const members = [user1.username, user2.username].sort();
     const conversationName = members.join(" and ");
     const conversationResponse = await API.graphql(
       graphqlOperation(mutations.createConversation, {
-        input: {
-          name: conversationName,
-          members,
-        },
+        name: conversationName,
+        id: uuidv4(),
+        createdAt: Date.now(),
       })
     );
+
     assertErrors(conversationResponse);
     const userConversation1Response = await API.graphql(
       graphqlOperation(mutations.createUserConversations, {
-        input: {
-          convoLinkUserId: user1,
-          convoLinkConversationId:
-            conversationResponse.data.CreateConversation.id,
-        },
+        userId: user1.cognitoId,
+        conversationId: conversationResponse.data.createConversation.id,
       })
     );
     assertErrors(userConversation1Response);
     const userConversation2Response = await API.graphql(
       graphqlOperation(mutations.createUserConversations, {
-        input: {
-          convoLinkUserId: user2,
-          convoLinkConversationId:
-            conversationResponse.data.CreateConversation.id,
-        },
+        userId: user2.cognitoId,
+        conversationId: conversationResponse.data.createConversation.id,
       })
     );
     assertErrors(userConversation2Response);

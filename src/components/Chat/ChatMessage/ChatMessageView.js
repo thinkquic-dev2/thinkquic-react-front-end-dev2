@@ -69,7 +69,10 @@ class ChatMessageView extends Component {
                 }}
               >
                 {({ data, loading, error }) => {
-                  const { getConvo } = data || {};
+                  const { allMessageConnection: getConvo } = data || {
+                    allMessageConnection: [],
+                  };
+                  getConvo = getConvo ? getConvo : [];
                   if (error) return <h3>Error: {error}</h3>;
                   let messages;
                   try {
@@ -77,8 +80,9 @@ class ChatMessageView extends Component {
                   } catch (e) {
                     messages = [];
                   }
-                  if (loading || !messages) return <h3>Loading...</h3>;
                   console.log(messages);
+                  if (loading || !messages) return <h3>Loading...</h3>;
+
                   return (
                     <div>
                       {messages.map((message, i) => (

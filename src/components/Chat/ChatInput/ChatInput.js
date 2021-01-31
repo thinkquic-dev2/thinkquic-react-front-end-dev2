@@ -14,6 +14,7 @@ class ChatInput extends Component {
   }
 
   render() {
+    const username = this.context ? this.context.username : null;
     return (
       <div className="chat-input">
         <div className="input-group">
@@ -26,7 +27,6 @@ class ChatInput extends Component {
             onKeyUp={this.onKeyUp}
             onChange={(e, t) => {
               this.setState({ text: e.target.value });
-              console.log(this.state.text);
             }}
           />
           <span className="input-group-btn">
@@ -45,10 +45,12 @@ class ChatInput extends Component {
 
   createNewMessage = async () => {
     const username = this.context.username;
+    console.log({ username });
     await CreateMessage({
       content: this.state.text,
+      sender: this.props.senderId,
       authorId: username,
-      //messageConversationId: this.props.conversation.id,
+      // ConversationId: this.props.conversation.id,
     });
     this.setState({ text: "" });
   };

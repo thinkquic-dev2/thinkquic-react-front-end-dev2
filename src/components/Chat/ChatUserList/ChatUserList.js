@@ -40,7 +40,7 @@ const ChatUserList = (props) => {
           {closeIcon}
         </button>
       </div>
-      <Users />
+      <Users username={username} />
     </div>
   );
 };
