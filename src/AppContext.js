@@ -16,6 +16,8 @@ const AppContextProvider = ({ children }) => {
   const { convertExcelToJson } = useExcelToJson();
   const [rawDataFile, setRawDataFile] = useState();
   const [jsonDataFile, setJsonDataFile] = useState();
+  const [allUsers, setAllUsers] = useState([]);
+  const [conId, setConId] = useState("");
   const {
     signIn,
     signOut,
@@ -33,6 +35,7 @@ const AppContextProvider = ({ children }) => {
     albumBucketName,
     uploadPath,
     cognitoUser,
+    currentUser,
     userSub,
   } = useCognito({ setMessages });
   const {
@@ -117,6 +120,11 @@ const AppContextProvider = ({ children }) => {
         setRightSidebarContent,
         toggleRightSidebarHandler,
         cognitoUser,
+        currentUser,
+        allUsers,
+        setAllUsers,
+        conId,
+        setConId,
       }}
     >
       {children}

@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import ChatInput from "../ChatInput/ChatInput";
 import ChatMessageView from "../ChatMessage/ChatMessageView";
 import ConversationList from "../ConvoList/ConversationList";
 import "./ChatList.scss";
+import { AppContext } from "../../../AppContext";
 
 const ChatList = (props) => {
   const { isChatListVisible, toggleIsChatListVisible } = props;
+  const { currentUser, conId } = useContext(AppContext);
+  console.log(currentUser);
 
-  const changeConversation = (conversation) => {
-    this.setState({
-      selectedConversation: conversation,
-    });
-  };
+  // const [state, setState] = useState({
+  //   selectedConversation: userConversation,
+  // });
+
+  // const changeConversation = (conversation) => {
+  //   setState({
+  //     selectedConversation: conversation,
+  //   });
+  // };
+
+  const convId = sessionStorage.getItem("convId");
 
   const chatUserListClass = isChatListVisible
     ? "chat-list chat-list--visible"
@@ -34,9 +43,17 @@ const ChatList = (props) => {
           {closeIcon}
         </button>
       </div>
-      <ConversationList changeConversation={changeConversation} />
-      <ChatMessageView />
-      <ChatInput />
+      {currentUser ? (
+        <>
+          <ConversationList
+            currUserId={currentUser.signInUserSession.idToken.payload.sub}
+          />
+          <ChatMessageView conversation={{ id: conId + "" }}></ChatMessageView>
+          <ChatInput />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -1,107 +1,99 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import { graphqlOperation } from "aws-amplify";
 import { Connect } from "aws-amplify-react";
 import { Scrollbars } from "react-custom-scrollbars";
-import AuthContext from "../../../AuthContext";
 import * as queries from "../../../graphql/queries";
 import * as subscriptions from "../../../graphql/subscriptions";
 import "./ChatMessageView.scss";
 import ChatMessage from "./ChatMessage";
+import { AppContext } from "../../../AppContext";
 
-class ChatMessageView extends Component {
-  static contextType = AuthContext;
+const ChatMessageView = (props) => {
+  //const contextType = AuthContext;
+  const { currentUser } = useContext(AppContext);
 
-  scrollbarsRef = React.createRef();
+  const scrollbarsRef = React.createRef();
 
-  scrollToBottom = () => {
-    if (this.scrollbarsRef && this.scrollbarsRef.current) {
-      this.scrollbarsRef.current.scrollToBottom();
-    }
+  const getSenderName = (message) => {
+    let sname = "";
+    let allUsers = sessionStorage.getItem("allUsers");
+    allUsers = allUsers ? JSON.parse(allUsers) : [];
+    const suser = allUsers.filter((us) => us.id === message?.sender)[0];
+    sname = suser?.username;
+    console.log(sname, suser);
+    return sname;
   };
 
-  componentDidMount = () => {
-    this.scrollToBottom();
-  };
-
-  componentDidUpdate = () => {
-    console.log("Updating");
-    this.scrollToBottom();
-  };
-
-  render() {
-    const username = this.context ? this.context.username : null;
-    return (
-      <div className="chat-message-view">
-        <div className="chat-message-view-header">
+  //const username = this.context ? this.context.username : null;
+  return (
+    <div className="chat-message-view">
+      {/* <div className="chat-message-view-header">
           {this.props.conversation
             ? this.props.conversation.name
             : "Select a conversation"}
-        </div>
-        <div className="chat" ref={this.messagesContainer}>
-          {this.props.conversation ? (
-            <Scrollbars
-              autoHide
-              autoHideTimeout={1000}
-              autoHideDuration={200}
-              ref={this.scrollbarsRef}
-            >
-              <Connect
-                query={graphqlOperation(queries.allMessageConnection, {
-                  id: this.props.conversation.id,
-                })}
-                subscription={graphqlOperation(
-                  subscriptions.subscribeToNewMessage,
-                  {
-                    conversationId: this.props.conversation.id,
-                  }
-                )}
-                onSubscriptionMsg={(prev, { subscribeToNewMessage }) => {
-                  try {
-                    prev.allMessageConnection.messages.items.push(
-                      subscribeToNewMessage
-                    );
-                  } catch (e) {
-                    console.log(
-                      "Failed to merge user conversation subscription"
-                    );
-                  }
-                  return prev;
-                }}
-              >
-                {({ data, loading, error }) => {
-                  const { allMessageConnection: getConvo } = data || {
-                    allMessageConnection: [],
-                  };
-                  getConvo = getConvo ? getConvo : [];
-                  if (error) return <h3>Error: {error}</h3>;
-                  let messages;
-                  try {
-                    messages = getConvo.messages.items;
-                  } catch (e) {
-                    messages = [];
-                  }
-                  console.log(messages);
-                  if (loading || !messages) return <h3>Loading...</h3>;
-
-                  return (
-                    <div>
-                      {messages.map((message, i) => (
-                        <ChatMessage
-                          key={i}
-                          message={message}
-                          isFromMe={message.authorId === username}
-                        />
-                      ))}
-                    </div>
+        </div> */}
+      <div className="chat">
+        {props.conversation ? (
+          <div className="msgview">
+            <Connect
+              query={graphqlOperation(queries.allMessageConnection, {
+                conversationId: props.conversation.id,
+              })}
+              subscription={graphqlOperation(
+                subscriptions.subscribeToNewMessage,
+                {
+                  conversationId: props.conversation.id,
+                }
+              )}
+              onSubscriptionMsg={(prev, { subscribeToNewMessage }) => {
+                try {
+                  prev.allMessageConnection.messages.push(
+                    subscribeToNewMessage
                   );
-                }}
-              </Connect>
-            </Scrollbars>
-          ) : null}
-        </div>
+                } catch (e) {
+                  console.log("Failed to merge user conversation subscription");
+                }
+                return prev;
+              }}
+            >
+              {({ data, loading, error }) => {
+                let { allMessageConnection: getConvo } = data || {
+                  allMessageConnection: [],
+                };
+                //console.log(data);
+                getConvo = getConvo ? getConvo : [];
+                if (error) return <h3>Error: {error}</h3>;
+                let messages;
+                try {
+                  messages = getConvo.messages;
+                } catch (e) {
+                  messages = [];
+                }
+                // console.log(getConvo);
+                if (loading || !messages) return <h3>Loading...</h3>;
+                console.log(messages);
+                return (
+                  <>
+                    {messages.map((message, i) => (
+                      <ChatMessage
+                        key={i}
+                        message={message}
+                        senderName={getSenderName(message)}
+                        isFromMe={
+                          message.sender ===
+                          currentUser.signInUserSession.idToken.payload.sub
+                        }
+                      />
+                    ))}
+                  </>
+                );
+              }}
+            </Connect>
+          </div>
+        ) : null}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ChatMessageView;

@@ -11,6 +11,7 @@ const useCognito = ({ setMessages }) => {
   const [username, setUsername] = useState(null);
   const [userSub, setUserSub] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const [registrationStatus, setRegistrationStatus] = useState("not started");
   const [cognitoUser, setCognitoUser] = useState(null);
   const [userPoolId, setUserPoolId] = useState();
@@ -134,6 +135,7 @@ const useCognito = ({ setMessages }) => {
             // Instantiate aws sdk service objects now that the credentials have been updated.
             // example: var s3 = new AWS.S3();
             setIsLoggedIn(true);
+            setCurrentUser(cognitoUser);
             setUsername(localCognitoUser.username);
           }
         });
@@ -153,6 +155,7 @@ const useCognito = ({ setMessages }) => {
   const signOut = () => {
     cognitoUser.signOut();
     setCognitoUser(null);
+    setCurrentUser(null);
     setIsLoggedIn(false);
     setUsername(null);
     setRegistrationStatus("not started");
@@ -198,6 +201,7 @@ const useCognito = ({ setMessages }) => {
         console.log(err.message);
       } else {
         setIsLoggedIn(true);
+        setCurrentUser(cognitoUser);
         setUsername(cognitoUser.getUsername());
       }
     });
@@ -352,6 +356,7 @@ const useCognito = ({ setMessages }) => {
     userSub,
     botAlias,
     uploadPath,
+    currentUser,
   };
 };
 

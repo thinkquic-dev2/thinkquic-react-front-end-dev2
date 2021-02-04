@@ -52,6 +52,7 @@ export const CreateConversation = async (user1, user2) => {
       })
     );
     assertErrors(userConversation2Response);
+    return conversationResponse.data.createConversation.id;
   } catch (e) {
     Analytics.record({
       name: "createConversationError",
@@ -65,7 +66,7 @@ export const CreateConversation = async (user1, user2) => {
 export const CreateMessage = async (message) => {
   try {
     const response = await API.graphql(
-      graphqlOperation(mutations.createMessage, { input: message })
+      graphqlOperation(mutations.createMessage, { ...message })
     );
     assertErrors(response);
     return response.data.CreateMessage;

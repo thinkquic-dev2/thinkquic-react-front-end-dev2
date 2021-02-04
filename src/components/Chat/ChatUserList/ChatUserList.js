@@ -3,6 +3,7 @@ import { allUser } from "../../../graphql/queries";
 import { API, graphqlOperation } from "aws-amplify";
 import Users from "../Users";
 import "./ChatUserList.scss";
+import ChatMessage from "../ChatMessage/ChatMessage";
 
 const ChatUserList = (props) => {
   const { isContactListVisible, toggleIsChatUserListVisible, username } = props;
@@ -11,9 +12,9 @@ const ChatUserList = (props) => {
     const fetchUsers = async () => {
       try {
         const users = await API.graphql(graphqlOperation(allUser));
-        console.log(users);
+        // console.log(users);
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     };
     fetchUsers();

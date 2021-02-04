@@ -7,22 +7,29 @@
 }
 
 .convo-list {
+    flex: 1;
     height: auto;
+    background-color: #e4e7eb;
     max-height: 30vh !important;
     /* max-height: 196px !important; */
     overflow-x: hidden !important;
     overflow-y: auto;
 }
 
-.bg {
-    background-color: #e4e7eb;
+.list-group {
+    background-color: #ffffff;
+    .convItem {
+        cursor: pointer;
+        padding: 6px 12px;
+        &.active{
+            background-color: #242424;
+            color: white;
+            cursor: default;
+        }
+    }
 }
 
-.list-group-item {
-    background-color: white;
-}
-
-.list-group-item:hover {
+.list-group:hover {
     color: rgb(73, 80, 87)!important;
     background-color: #e6e6e6!important;
     border-radius: 0;

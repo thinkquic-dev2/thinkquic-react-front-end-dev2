@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import { graphqlOperation } from "aws-amplify";
 import { Connect } from "aws-amplify-react";
-import AppContext from "../../AppContext";
+import { AppContext } from "../../AppContext";
 import * as queries from "../../graphql/queries";
 import * as subscriptions from "../../graphql/subscriptions";
 import { CreateConversation } from "../../mutationHelper";
@@ -9,15 +9,48 @@ import { allUser } from "../../graphql/queries";
 import { Avatar } from "@material-ui/core";
 import "./Users.scss";
 
-class Users extends Component {
+const Users = (props) => {
   // static contextType = AppContext;
-  currUser = null;
-  render() {
-    const { username } = this.props;
 
-    return (
-      <div>
-        {/* <div className="section-header">
+  const { setConId } = useContext(AppContext);
+  let currUser = null;
+  let allUsers = [];
+
+  const createNewConversation = async (user) => {
+    let convos = sessionStorage.getItem("convos");
+    convos = convos ? JSON.parse(convos) : [];
+    const verifyConversation = () => {
+      console.log(convos);
+      for (let i = 0; i < convos.length; i++) {
+        console.log(convos[i]);
+        if (
+          convos[i].associated[0]?.userId === currUser.cognitoId &&
+          convos[i].associated[1]?.userId === user.cognitoId
+        ) {
+          console.log("OK 1");
+          return { status: true, cid: convos[i]?.conversationId };
+        }
+      }
+      console.log("OK 2");
+      return { status: false };
+    };
+    let conversationExists = verifyConversation();
+    console.log(conversationExists);
+    if (conversationExists.status) {
+      sessionStorage.setItem("convId", conversationExists?.cid + "");
+      setConId(conversationExists?.cid + "");
+    } else {
+      const conversationId = await CreateConversation(user, currUser);
+      sessionStorage.setItem("convId", conversationId + "");
+      setConId(conversationId + "");
+    }
+  };
+
+  const { username } = props;
+
+  return (
+    <div>
+      {/* <div className="section-header">
           <h6 className="mb-0">
             <i
               className="ion-ios-person"
@@ -27,66 +60,61 @@ class Users extends Component {
             Users
           </h6>
         </div> */}
-        <div className="user-list">
-          <div className="list-group">
-            <Connect
-              query={graphqlOperation(queries.allUser)}
-              subscription={graphqlOperation(subscriptions.subscribeToNewUsers)}
-              onSubscriptionMsg={(prev, { subscribeToNewUsers }) => {
-                prev.allUser.items.push(subscribeToNewUsers);
-                return prev;
-              }}
-            >
-              {({ data, loading, error }) => {
-                let { allUser: allUsers } = data || {
-                  allUser: [],
-                };
-                allUsers = allUsers ? allUsers : [];
+      <div className="user-list">
+        <div className="list-group">
+          <Connect
+            query={graphqlOperation(queries.allUser)}
+            subscription={graphqlOperation(subscriptions.subscribeToNewUsers)}
+            onSubscriptionMsg={(prev, { subscribeToNewUsers }) => {
+              prev.allUser.items.push(subscribeToNewUsers);
+              return prev;
+            }}
+          >
+            {({ data, loading, error }) => {
+              let { allUser } = data || {
+                allUser: [],
+              };
 
-                if (error) return <h3>Error: {error}</h3>;
-                if (loading || !allUsers) return <h3>Loading...</h3>;
-                let validUsers = allUsers?.filter(
-                  (user) => user.username !== username
-                );
-                this.currUser = allUsers?.filter(
-                  (user) => user.username === username
-                )[0];
-                console.log(validUsers);
-                validUsers = validUsers ? validUsers : [];
-                const noUsers = validUsers?.length === 0;
-                if (noUsers) {
-                  console.log(allUsers);
-                  return (
-                    <div>
-                      <br />
-                      <div className="alert alert-success" role="alert">
-                        It looks lonely here... Sign up another user
-                      </div>
+              allUsers = allUser ? allUser : [];
+              sessionStorage.setItem("allUsers", JSON.stringify(allUsers));
+
+              if (error) return <h3>Error: {error}</h3>;
+              if (loading || !allUsers) return <h3>Loading...</h3>;
+              let validUsers = allUsers?.filter(
+                (user) => user.username.toLowerCase() !== username.toLowerCase()
+              );
+              currUser = allUsers?.filter(
+                (user) => user.username === username
+              )[0];
+              console.log(validUsers);
+              validUsers = validUsers ? validUsers : [];
+              const noUsers = validUsers?.length === 0;
+              if (noUsers) {
+                console.log(allUsers);
+                return (
+                  <div>
+                    <br />
+                    <div className="alert alert-success" role="alert">
+                      It looks lonely here... Sign up another user
                     </div>
-                  );
-                }
-                return validUsers.map((user, i) => (
-                  <a
-                    href="#"
-                    key={i}
-                    className="list-group-item list-group-item-action p-3 border-0"
-                    onClick={() => this.createNewConversation(user)}
-                  >
-                    {user.username}
-                  </a>
-                ));
-              }}
-            </Connect>
-          </div>
+                  </div>
+                );
+              }
+              return validUsers.map((user, i) => (
+                <a
+                  href="#"
+                  key={i}
+                  className="list-group-item list-group-item-action p-3 border-0"
+                  onClick={() => createNewConversation(user)}
+                >
+                  {user.username}
+                </a>
+              ));
+            }}
+          </Connect>
         </div>
       </div>
-    );
-  }
-
-  createNewConversation = async (user) => {
-    await CreateConversation(user, this.currUser);
-    console.log(user);
-  };
-}
-
+    </div>
+  );
+};
 export default Users;
