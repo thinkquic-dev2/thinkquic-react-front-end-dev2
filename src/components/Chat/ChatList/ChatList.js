@@ -8,7 +8,7 @@ import { AppContext } from "../../../AppContext";
 const ChatList = (props) => {
   const { isChatListVisible, toggleIsChatListVisible } = props;
   const { currentUser, conId } = useContext(AppContext);
-  console.log(currentUser);
+  //console.log(conId);
 
   // const [state, setState] = useState({
   //   selectedConversation: userConversation,

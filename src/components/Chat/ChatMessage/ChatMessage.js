@@ -6,7 +6,6 @@ const ChatMessage = (props) => {
   const timeString = props.message.createdAt
     ? new Date(props.message.createdAt).toLocaleTimeString()
     : new Date().toLocaleTimeString();
-  console.log(props);
   return (
     <div className={`message_body ${props.isFromMe ? "me" : ""}`}>
       <p className="chatmessage">

@@ -20,22 +20,23 @@ const Users = (props) => {
     let convos = sessionStorage.getItem("convos");
     convos = convos ? JSON.parse(convos) : [];
     const verifyConversation = () => {
-      console.log(convos);
+      //console.log(user.cognitoId, currUser?.cognitoId);
       for (let i = 0; i < convos.length; i++) {
-        console.log(convos[i]);
         if (
-          convos[i].associated[0]?.userId === currUser.cognitoId &&
-          convos[i].associated[1]?.userId === user.cognitoId
+          (convos[i].associated[0]?.userId === currUser?.cognitoId &&
+            convos[i].associated[1]?.userId === user.cognitoId) ||
+          (convos[i].associated[1]?.userId === currUser?.cognitoId &&
+            convos[i].associated[0]?.userId === user.cognitoId)
         ) {
-          console.log("OK 1");
+          // console.log("OK 1");
           return { status: true, cid: convos[i]?.conversationId };
         }
       }
-      console.log("OK 2");
+      // console.log("OK 2");
       return { status: false };
     };
     let conversationExists = verifyConversation();
-    console.log(conversationExists);
+    // console.log(conversationExists);
     if (conversationExists.status) {
       sessionStorage.setItem("convId", conversationExists?.cid + "");
       setConId(conversationExists?.cid + "");
@@ -84,13 +85,11 @@ const Users = (props) => {
                 (user) => user.username.toLowerCase() !== username.toLowerCase()
               );
               currUser = allUsers?.filter(
-                (user) => user.username === username
+                (user) => user.username.toLowerCase() === username.toLowerCase()
               )[0];
-              console.log(validUsers);
               validUsers = validUsers ? validUsers : [];
               const noUsers = validUsers?.length === 0;
               if (noUsers) {
-                console.log(allUsers);
                 return (
                   <div>
                     <br />

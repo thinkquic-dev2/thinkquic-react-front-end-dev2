@@ -59,7 +59,7 @@ const ConversationList = (props) => {
                 userConversations = [];
               }
               if (loading || !userConversations) return <h3>Loading...</h3>;
-              console.log(userConversations);
+              // console.log(userConversations);
               const associatedConvs = userConversations.map(
                 ({ associated, conversationId }) => ({
                   associated,

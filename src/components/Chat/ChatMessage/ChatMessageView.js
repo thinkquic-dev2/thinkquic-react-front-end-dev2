@@ -12,15 +12,12 @@ const ChatMessageView = (props) => {
   //const contextType = AuthContext;
   const { currentUser } = useContext(AppContext);
 
-  const scrollbarsRef = React.createRef();
-
   const getSenderName = (message) => {
     let sname = "";
     let allUsers = sessionStorage.getItem("allUsers");
     allUsers = allUsers ? JSON.parse(allUsers) : [];
     const suser = allUsers.filter((us) => us.id === message?.sender)[0];
     sname = suser?.username;
-    console.log(sname, suser);
     return sname;
   };
 
@@ -71,10 +68,16 @@ const ChatMessageView = (props) => {
                 }
                 // console.log(getConvo);
                 if (loading || !messages) return <h3>Loading...</h3>;
-                console.log(messages);
+                //console.log(messages);
+                let sortMessages = messages.sort((a, b) => {
+                  return (
+                    new Date(b.createdAt).getTime() -
+                    new Date(a.createdAt).getTime()
+                  );
+                });
                 return (
                   <>
-                    {messages.map((message, i) => (
+                    {sortMessages.map((message, i) => (
                       <ChatMessage
                         key={i}
                         message={message}
