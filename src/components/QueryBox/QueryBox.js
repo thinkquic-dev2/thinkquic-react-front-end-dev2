@@ -34,10 +34,10 @@ const QueryBox = ({ pushChat, username, botName, botAlias, sessionAttributes }) 
       }
       if (isJson(botReply) && !isJsonMessageCorrectFormat(botReply)) {
         setMessages([...messages, { from: "app", message: "Oops something went wrong." }]);
-        // setIsWaiting(false);
       } else {
         botResponseErrorRef.current = 0;
         setMessages([...messages, { from: "app", message: botReply }]);
+        setIsWaiting(false);
       }
     };
     if (hasMessages() && isMessageFromUser() && isPreviousMessagesLoaded) {
@@ -159,7 +159,7 @@ const QueryBox = ({ pushChat, username, botName, botAlias, sessionAttributes }) 
       };
       setMessages([...messages, userMessage]);
       setMessage("");
-      //setIsWaiting(true);
+      setIsWaiting(true);
     } else {
       return;
     }

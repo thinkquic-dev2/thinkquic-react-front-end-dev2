@@ -14,13 +14,13 @@ const MessagesContainer = () => {
       {messages.map((message, index) => {
         return <Message isLast={isLast(index)} key={index} index={index} message={message} />;
       })}
-      {/* {isWaiting ? (
+      {isWaiting ? (
         <div className="progress_load">
           <LinearProgress />
         </div>
       ) : (
         <></>
-      )} */}
+      )}
     </div>
   );
 };
