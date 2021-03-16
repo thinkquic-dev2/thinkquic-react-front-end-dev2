@@ -1,0 +1,610 @@
+$sidebarWidth: 4rem;
+$sidebarWidthExpanded: 12rem;
+$headerHeight: 4rem;
+$primary: #4C4C4C;
+$primaryTextColor: #ffffff;
+$secondary: #ffffff;
+$secondaryTextColor: #4C4C4C;
+$bubbleFromUser: #19d3da;
+$bubbleFromUserTextColor: $secondaryTextColor;
+$bubbleFromApp: #D6E0F0;
+$bubbleFromAppTextColor: $secondaryTextColor;
+$transitionSpeed: 200ms;
+
+// grayscale
+$gray: #808080;
+$grayTextColor: white;
+$grayItem: #B6B6B6;
+$grayItemTextColor: black;
+$grayHover: #EDEDED;
+$grayHoverTextColor: black;
+
+// Blues
+$blue: #0C16A3;
+$blueTextColor: white;
+$blueItem: #111FE0;
+$blueItemTextColor: white;
+$blueHover: #414DF1;
+$blueHoverTextColor: white;
+
+// @import './components/SidebarItem/Sidebar.scss';
+@import './components/Submenu/Submenu.scss';
+@import './components/QueryBox/QueryBox.scss';
+@import './components/MessagesContainer/MessagesContainer.scss';
+@import './components/Message/Message.scss';
+@import './components/AgTable/AgTable.scss';
+@import './components/File/File.scss';
+
+
+:root{
+  font-size: 16px;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+// bootstrap overrides
+.in-message-table-container{
+  overflow-x: scroll;
+  width: 100%;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    width: .5rem;
+  }
+
+  &::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.2);
+    border-radius: 5px;
+  }
+}
+
+.table--in-message{
+  border: 1px solid #DEE2E6;
+  margin-bottom: 0;
+  max-width: 100%;
+  // background-color: #4C4C4C;
+  & td{
+    // word-break: break-all;
+  }
+  & tr, & td, & th{
+  }
+  & tbody+tbody, & td, & th, & thead th{
+
+  }
+}
+
+.overlay{
+  display: none;
+}
+.message:not(.message--last){
+  .overlay{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(37,40,48,.8);
+  } 
+}
+
+.message-bubble--user{
+  .overlay{
+    display: none !important;
+  }
+}
+
+// Themes
+.app{
+  background: #F2F1ED;
+  &__sidebar{
+    background: $gray;
+  }
+  &__header{
+    background: white;
+  }
+  &__main{
+    background: #efefef;
+  }
+  &__header-item{
+    border: 1px solid gray;
+    color: gray;
+  }
+  &__query{
+    background:white;
+  }
+  .submenu{
+    background: rgb(89, 89, 89);
+  }
+  .header__collapse{
+    background: #F2F1ED;
+  }
+  .header__item{
+    color: black;
+  }
+  .header__menu-toggle{
+    border-color: black;
+    svg{
+      fill: black;
+    }
+  }
+}
+
+.app--theme-one{
+  .app__header{
+    background: #E4E6FD;
+  }
+  .app__header-item{
+    border: 1px solid #414DF1;
+    color: #414DF1;
+    &:hover{
+      background: #414DF1;
+      color: white;
+    }
+  }
+  .app__query{
+    .query-box__button{
+      background: #414DF1;
+      color: white;
+      &:hover{
+        background: white;
+        color: #414DF1;
+        svg{
+          fill: #414DF1;
+        }
+      }
+      svg{
+        fill: white;
+      }
+    }
+  }
+
+  .sidebar{
+    background: #3D5DC7;
+  }
+  .sidebar-item__button{
+    &:hover{
+      svg{
+        fill: #3D5DC7
+      }
+    }
+  }
+
+  .theme-options{
+    background: #758CD7;
+
+    &__heading{
+      color: white;
+    }
+
+    &__option{
+      color: white;
+
+      &:hover{
+        background: #4B69CB;
+      }
+
+      svg{
+        fill: white;
+      }
+    }
+  }
+  .files-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+  }
+
+  .contact-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+    &__info{
+      color: white;
+    }
+  }
+
+  .chat-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+    &__info{
+      color: white;
+    }
+  }
+
+  .breadcrumb__item{
+    color: white;
+  }
+
+  .file{
+    color: white;
+    &:hover{
+      background: #4B69CB;
+    }
+    svg{
+      fill: white;
+    }
+  }
+
+  .submenu{
+    background: #6D76F1;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+
+    .sidebar-item{
+      background: #6D76F1;
+
+      &:hover{
+        background: white;
+
+        .sidebar-item__text{
+          color: #6D76F1;
+        }
+        svg{
+          fill: #6D76F1;
+        }
+      }
+
+      svg{
+        fill: white;
+      }
+      .sidebar-item__text{
+        color: white;
+      }
+    }
+  }
+  .message-bubble{
+    &--user{
+      background: white;
+      color: black;
+    }
+    &--app{
+      background: #FF4747;
+      color: white;
+
+    }
+  }
+  .table--in-message{
+    background: white;
+    border: 1px solid #3D5DC7;
+    margin-bottom: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    // background-color: #4C4C4C;
+    & tr, & td, & th{
+      border-color: #3D5DC7;
+    }
+    & tbody+tbody, & td, & th, & thead th{
+  
+    }
+  }
+
+  .header__item{
+    color: black;
+  }
+}
+
+.app--theme-two{
+  .main{
+    background: #131417;
+  }
+  .header{
+    background: #252830;
+  }
+  .header__brand-text{
+    color: white;
+  }
+  .header__item{
+    color: white;
+  }
+  .app__header{
+    background: #E4E6FD;
+  }
+  .app__header-item{
+    border: 1px solid #414DF1;
+    color: #414DF1;
+    &:hover{
+      background: #414DF1;
+      color: white;
+    }
+  }
+  .app__query{
+    .query-box__button{
+      background: #414DF1;
+      color: white;
+      &:hover{
+        background: white;
+        color: #414DF1;
+        svg{
+          fill: #414DF1;
+        }
+      }
+      svg{
+        fill: white;
+      }
+    }
+  }
+
+  .sidebar{
+    background: #252830;
+  }
+  .sidebar-item__button{
+    &:hover{
+      svg{
+        fill: #3D5DC7
+      }
+    }
+  }
+
+  .theme-options{
+    background: #758CD7;
+
+    &__heading{
+      color: white;
+    }
+
+    &__option{
+      color: white;
+
+      &:hover{
+        background: #4B69CB;
+      }
+
+      svg{
+        fill: white;
+      }
+    }
+  }
+  .files-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+  }
+
+  .contact-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+    &__info{
+      color: white;
+    }
+  }
+
+  .chat-list{
+    background: #758CD7;
+    &__header{
+      color: white;
+    }
+    &__info{
+      color: white;
+    }
+  }
+
+  .breadcrumb__item{
+    color: white;
+  }
+
+  .file{
+    color: white;
+    &:hover{
+      background: #4B69CB;
+    }
+    svg{
+      fill: white;
+    }
+  }
+
+  .file-uploading, .file-upload-error{
+    color: white;
+    svg{
+      fill: white;
+    }
+  }
+
+  .file-upload-error__close-button{
+    background: #FF4747;
+  }
+
+  .submenu{
+    background: #6D76F1;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+
+    .sidebar-item{
+      background: #6D76F1;
+
+      &:hover{
+        background: white;
+
+        .sidebar-item__text{
+          color: #6D76F1;
+        }
+        svg{
+          fill: #6D76F1;
+        }
+      }
+
+      svg{
+        fill: white;
+      }
+      .sidebar-item__text{
+        color: white;
+      }
+    }
+  }
+
+  .message-bubble{
+    &--user{
+      background: rgb(65,77,241);
+      background: linear-gradient(305deg, rgba(65,77,241,1) 0%, rgba(255,71,71,1) 100%);
+      color: white;
+    }
+    &--app{
+      background: #252830;
+      color: white;
+
+    }
+  }
+  
+  .table--in-message{
+    background: transparent;
+    border: 1px solid white;
+    margin-bottom: 0;
+    overflow: hidden;
+    color: white;
+    & tr, & td, & th{
+      border-color: white;
+    }
+    & tbody+tbody, & td, & th, & thead th{
+  
+    }
+  }
+
+  .query-box__input{
+    background: #252830;
+    color: white;
+  }
+  .app-message-tester{
+    opacity: .03;
+  }
+  .delete-account-button{
+    opacity: .03;
+  }
+
+  .header__collapse{
+    background: #252830;
+  }
+  .messages-container::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  .messages-container::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.2);
+    border-radius: 5px;
+  }
+  .header__menu-toggle{
+    border-color: white;
+    svg{
+      fill: white;
+    }
+  }
+  .timeout-prompt{
+    background: #252830;
+    color: white;
+  }
+}
+
+.app{
+  height: 100vh;
+}
+.app__header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $headerHeight;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 1;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+
+  .app__header-item{
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 300ms, background 300ms;
+  }
+  .app__header-item--right{
+    margin-left: auto;
+  }
+  .app__brand{
+    color: $primaryTextColor;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      height: 40px;
+      width: auto;
+    }
+  }
+}
+.app__sidebar{
+  position: fixed;
+  top: $headerHeight;
+  left: 0;
+  width: $sidebarWidth;
+  height: calc(100vh - #{$headerHeight});
+  transition: width $transitionSpeed;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+  z-index: 1;
+
+  &:hover{
+    width: $sidebarWidthExpanded;
+  }
+}
+.app__main{
+  position: fixed;
+  margin-top: $headerHeight;
+  margin-left: $sidebarWidth;
+  width: calc(100vw - #{$sidebarWidth});
+  height: calc(100vh - #{$headerHeight});
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+}
+.app__conversations{
+  height: 90%;
+}
+.app__query{
+  height: 10%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+  z-index: 0;
+
+  .query-box__button{
+    border: 1px solid #CED4DA;
+    transition: background 300ms;
+
+    &:hover{
+      background: #808080;
+      svg{
+        fill: #4C4C4C;
+        fill: white;
+      }
+    }
+    svg{
+      height: 1rem;
+      fill: #4C4C4C;
+      transition: fill 300ms;
+    }
+  }
+}

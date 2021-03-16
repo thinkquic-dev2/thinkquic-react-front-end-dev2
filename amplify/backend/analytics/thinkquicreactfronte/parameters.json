@@ -1,0 +1,21 @@
+{
+    "appName": "thinkquicreactfronte",
+    "roleName": "pinpointLambdaRole37d99953",
+    "cloudformationPolicyName": "cloudformationPolicy37d99953",
+    "cloudWatchPolicyName": "cloudWatchPolicy37d99953",
+    "pinpointPolicyName": "pinpointPolicy37d99953",
+    "authPolicyName": "pinpoint_amplify_37d99953",
+    "unauthPolicyName": "pinpoint_amplify_37d99953",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

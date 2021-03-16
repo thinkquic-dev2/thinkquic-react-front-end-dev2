@@ -1,0 +1,35 @@
+Agtable parameters
+ - rowData //jsonDataFile
+ - rowSelection="multiple"
+ - onGridReady //from useAgTable hook
+ - onColumnVisible //from useAgTable hook 
+
+Bug
+ - uploading the same file through FileUploader does not trigger the TableContainer
+ - to replicate, upload a file, discard the table, upload the same file.
+
+Background
+ - FileUploader has an onChange handler. Uploading the same file multiple times does not 
+   trigger onChange.
+ - the ref to the fileUploader file input is created in appContext
+
+Fix
+ - delete the input ref file once processed by setRawDataFile
+
+
+
+Problem
+ - when to display or not display upload button in table container.
+Expected Behavior
+ - when a user uploads a file, the file gets displayed as a table.
+ - in the table interface, there should be a button to upload to s3
+ - when the user clicks on the button, there should be a message that says 
+   the file is uploaded.
+ - the button should disappear
+
+Uploading file still not working. because the inputref is being cleared everything a file is selected(before uploading)\
+
+Identify These two type:
+	{"item":"string","quantityOnHand":"numeric","quantitySold":"numeric"}
+	{"dataOne":{"item":"string","quantityOnHand":"numeric","quantitySold":"numeric"},"dataTwo":{"item":"string","quantityOnHand":"numeric","quantitySold":"numeric"}}
+

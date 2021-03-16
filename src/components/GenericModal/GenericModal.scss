@@ -1,0 +1,70 @@
+.generic-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.8);
+  animation: Fadein .5s;
+
+  &--closing{
+    animation: Fadeout .5s;
+  }
+
+  &__dialog{
+    position:relative;
+    padding: 1rem;
+    background: white;
+    width: 70%;
+    height: 80%;
+    border-radius: 8px;
+
+    @media (max-width: 767px){
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__title{
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    @media (max-width: 767px){
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__close{
+    position: absolute;
+    padding: .25rem !important;
+    right: 1rem;
+
+    svg{
+      width: 24px;
+      fill: white;
+    }
+
+    @media (max-width: 767px){
+      svg{
+        width: 1rem;
+      }
+    }
+  }
+
+  &__content{
+    height: 90%;
+    position: relative;
+  }
+}
+

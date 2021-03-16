@@ -1,0 +1,53 @@
+.file-upload-error{
+  position: relative;
+  margin: 0 .5rem;
+  padding: .5rem;
+  border: none;
+  border-radius: 5px;
+  max-width: 100%;
+  background: rgba(255, 0, 0,.2);
+
+  &__notification{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__message{
+    flex: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    justify-content: center;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  &__close-button{
+    position: absolute;
+    right: 0;
+    border: 0;
+    border-radius: 5px;
+
+    svg{
+      width: 24px;
+    }
+  }
+
+  &__file{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  &__icon{
+    margin-right: .5rem;
+    svg{
+      width: 24px;
+    }
+  }
+
+  &__filename{
+    white-space: nowrap;
+  }
+}

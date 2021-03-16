@@ -1,0 +1,101 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thinkquicreactfronte-dev-172345-authRole",
+      "UnauthRoleArn": "arn:aws:iam::641692160297:role/amplify-thinkquicreactfronte-dev-172345-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::641692160297:role/amplify-thinkquicreactfronte-dev-172345-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-thinkquicreactfronte-dev-172345-deployment",
+      "UnauthRoleName": "amplify-thinkquicreactfronte-dev-172345-unauthRole",
+      "StackName": "amplify-thinkquicreactfronte-dev-172345",
+      "StackId": "arn:aws:cloudformation:us-west-2:641692160297:stack/amplify-thinkquicreactfronte-dev-172345/c07cf510-5d9f-11eb-b58c-0627f45b98ad",
+      "AmplifyAppId": "d9lc20osm2vvb"
+    }
+  },
+  "auth": {
+    "thinkquicreactfrontec8bc7eff": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "output": {
+        "AppClientSecret": "u0pqcrd0bi6l3jl28ro3ngvirj123ecq4hrctnsu08djhkrpa3q",
+        "UserPoolId": "us-west-2_jseVZL1mh",
+        "AppClientIDWeb": "36nivl36qlp8fbnkpd2jv52fu",
+        "AppClientID": "28j7org53mtn87ncn9rl8crpfa",
+        "IdentityPoolId": "us-west-2:a2cb5a9d-d728-4c5c-a96e-b2973d14c5e0",
+        "IdentityPoolName": "thinkquicreactfrontec8bc7eff_identitypool_c8bc7eff__dev",
+        "UserPoolName": "thinkquicreactfrontec8bc7eff_userpool_c8bc7eff"
+      },
+      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/auth/thinkquicreactfrontec8bc7eff-cloudformation-template.yml",
+        "logicalId": "auththinkquicreactfrontec8bc7eff"
+      },
+      "lastPushDirHash": "KJGVsifiqN6guE3O/XPYBG/HSqE="
+    }
+  },
+  "analytics": {
+    "thinkquicreactfronte": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "appName": "thinkquicreactfronte-dev",
+        "Region": "us-west-2",
+        "Id": "c4a87de1250246e491ab2d90d2db162f"
+      },
+      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+        "logicalId": "analyticsthinkquicreactfronte"
+      },
+      "lastPushDirHash": "+TyOACyMtVh/pXh6U84yp6PBGtE="
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "CloudFrontSecureURL": "https://d27nvasfpedpzh.cloudfront.net",
+        "S3BucketSecureURL": "https://thinkquicreactfronte-20210211155341-hostingbucket-dev.s3.amazonaws.com",
+        "CloudFrontOriginAccessIdentity": "E3RMSGLBNXXC87",
+        "WebsiteURL": "http://thinkquicreactfronte-20210211155341-hostingbucket-dev.s3-website-us-west-2.amazonaws.com",
+        "CloudFrontDistributionID": "E25KDOWHEOQW73",
+        "Region": "us-west-2",
+        "HostingBucketName": "thinkquicreactfronte-20210211155341-hostingbucket-dev",
+        "CloudFrontDomainName": "d27nvasfpedpzh.cloudfront.net"
+      },
+      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushDirHash": "eeBh59dkYNEuAwHuChN1XzB13WQ="
+    }
+  },
+  "api": {
+    "thinkQL": {
+      "service": "AppSync",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS"
+          },
+          "additionalAuthenticationProviders": null,
+          "userPoolConfig": {
+            "userPoolId": "us-west-2_jseVZL1mh",
+            "awsRegion": "us-west-2",
+            "defaultAction": "ALLOW",
+            "appIdClientRegex": null
+          }
+        },
+        "GraphQLAPIIdOutput": "pwhesu3gojfplk7geguwaukvuy",
+        "GraphQLAPIEndpointOutput": "https://7zmvw77ngrhorm2rplc5j7tzta.appsync-api.us-west-2.amazonaws.com/graphql",
+        "name": "thinkQL",
+        "region": "us-west-2"
+      },
+      "lastPushTimeStamp": "2021-01-28T17:55:22.350Z"
+    }
+  }
+}

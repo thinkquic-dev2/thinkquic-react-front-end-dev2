@@ -1,0 +1,25 @@
+.select-items{
+  margin: 1rem 0;
+  &__selected-items{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: .25rem;
+  }
+  &__selected-item{
+    margin: .25rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+  &__selected-item-text{
+    padding: .25rem;
+    border-right: 1px solid white;
+  }
+  &__remove-selected-item{
+    border: none;
+    background: transparent;
+    color: white;
+  }
+}

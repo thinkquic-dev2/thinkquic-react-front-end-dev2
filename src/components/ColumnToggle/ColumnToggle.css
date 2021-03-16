@@ -1,0 +1,17 @@
+.column-control-panel{
+  position: relative;
+}
+.column-control-buttons{
+  position: absolute;
+  right: -200px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 4;
+  top: -100px;
+  width: 170px;
+  border: 1px solid gray;
+  -webkit-box-shadow: 10px 10px 26px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 26px -7px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 26px -7px rgba(0,0,0,0.75);
+}

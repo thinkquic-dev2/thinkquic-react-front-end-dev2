@@ -1,0 +1,32 @@
+.options-list{
+  &__title{
+    font-weight: bold;
+  }
+
+  &__options{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__option{
+    display: flex;
+    justify-content: flex-start;
+    padding: .5rem 1rem;
+    margin: 0 -1rem;
+    align-items: center;
+    background: none;
+    border: none;
+    color: white;
+    transition: background 200ms;
+
+    &:hover{
+      background: #5A6268;
+    }
+
+    svg{
+      fill: white;
+      margin-left: auto;
+      width: 24px;
+    }
+  }
+}

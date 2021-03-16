@@ -1,0 +1,51 @@
+.ag-table__control-button{
+
+  &:hover{
+    svg{
+      fill: $primaryTextColor;
+    }
+  }
+  svg{
+    width: 1rem;
+    fill: $secondaryTextColor;
+  
+  }
+}
+.ag-table__container{
+
+}
+.ag-wrapper{
+}
+.ag-theme-balham{}
+
+.ag-center-cols-container{
+  // width: 100% !important;
+  display: flex !important;
+}
+.ag-controls{
+  display: flex;
+  justify-content: flex-start;
+}
+.ag-theme-balham .ag-root-wrapper{
+  border: none !important;
+}
+.ag-body-viewport.ag-layout-normal.ag-row-no-animation::-webkit-scrollbar{
+  width: .5rem !important;
+}
+.ag-body-viewport.ag-layout-normal.ag-row-no-animation::-webkit-scrollbar-track{
+  background: white !important;
+}
+.ag-body-viewport.ag-layout-normal.ag-row-no-animation::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.2) !important;
+  border-radius: 5px !important;
+}
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar{
+  height: .5rem !important
+}
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track{
+  background: white !important;
+}
+.ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.2) !important;
+  border-radius: 5px !important;
+}

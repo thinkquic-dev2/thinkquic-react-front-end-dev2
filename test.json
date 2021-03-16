@@ -1,0 +1,32 @@
+{
+  "Result": {
+    "Chart": {
+      "Aggregation": [{ "Aggregation1": { "statistics": { "stats_key": "area", "stats": { "maximum": "" } } } }],
+      "Data": []
+    },
+    "Button": [
+      { "Button1": { "key": "Search", "value": "search" } },
+      { "Button2": { "key": "Filter", "value": "filter" } },
+      { "Button3": { "key": "Multi Aggregation", "value": "multi" } },
+      { "Button4": { "key": "Change file", "value": "change" } },
+      { "Button5": { "key": "Continue with Single Aggregation", "value": "single" } }
+    ],
+    "Text": [{ "Text1": { "value": "What would you like to do next ?" } }],
+    "Column": [
+      { "Column1": { "value": "price" } },
+      { "Column2": { "value": "area" } },
+      { "Column3": { "value": "bedrooms" } },
+      { "Column4": { "value": "bathrooms" } },
+      { "Column5": { "value": "stories" } },
+      { "Column6": { "value": "mainroad" } },
+      { "Column7": { "value": "guestroom" } },
+      { "Column8": { "value": "basement" } },
+      { "Column9": { "value": "hotwaterheating" } },
+      { "Column10": { "value": "airconditioning" } },
+      { "Column11": { "value": "parking" } },
+      { "Column12": { "value": "prefarea" } },
+      { "Column13": { "value": "furnishingstatus" } },
+      { "Column14": { "value": "postedon" } }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+
+"chart.js" (used for charting)
+  https://www.npmjs.com/package/chart.js?activeTab=readme 
+"react-chartjs-2" (used for charting)
+  https://www.npmjs.com/package/react-chartjs-2
+"react-dropzone" (used for dropping files. not implemented yet)
+  https://www.npmjs.com/package/react-dropzone
+"ag-grid-community" (used for file preview)
+  https://www.npmjs.com/package/ag-grid-community
+"ag-grid-react" (used for file preview)
+  https://www.npmjs.com/package/ag-grid-react
+"xlsx" (used for file preview)
+  https://www.npmjs.com/package/xlsx
+
+"react" (used for the whole project)
+  https://github.com/facebook/react

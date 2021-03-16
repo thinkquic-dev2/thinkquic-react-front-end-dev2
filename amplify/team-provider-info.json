@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thinkquicreactfronte-dev-172345-authRole",
+      "UnauthRoleArn": "arn:aws:iam::641692160297:role/amplify-thinkquicreactfronte-dev-172345-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::641692160297:role/amplify-thinkquicreactfronte-dev-172345-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-thinkquicreactfronte-dev-172345-deployment",
+      "UnauthRoleName": "amplify-thinkquicreactfronte-dev-172345-unauthRole",
+      "StackName": "amplify-thinkquicreactfronte-dev-172345",
+      "StackId": "arn:aws:cloudformation:us-west-2:641692160297:stack/amplify-thinkquicreactfronte-dev-172345/c07cf510-5d9f-11eb-b58c-0627f45b98ad",
+      "AmplifyAppId": "d9lc20osm2vvb"
+    },
+    "categories": {
+      "auth": {
+        "thinkquicreactfrontec8bc7eff": {}
+      }
+    }
+  }
+}

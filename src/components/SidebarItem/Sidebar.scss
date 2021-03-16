@@ -1,0 +1,53 @@
+.sidebar-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 3rem;
+  text-decoration: none!important;
+  transition: background $transitionSpeed, color $transitionSpeed;
+  z-index: 4;
+  background: none;
+  border: none;
+  padding: 0 .5rem;
+  
+  &:hover{
+    background: $secondary;
+
+    > .sidebar-item__text{
+      color: $primary;
+    }
+    > .sidebar-item__icon{
+      svg{
+        fill: $primary;
+      }
+    }
+  }
+
+  &__icon{
+    flex: 0 0 3rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    svg{
+      fill: white;
+      height: 2rem;
+    }
+  }
+  .sidebar-item__text{
+    display: none;
+    white-space: nowrap;
+    height: 100%;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
+.app__sidebar:hover{
+  .sidebar-item__text{
+    display: flex;
+  }
+}

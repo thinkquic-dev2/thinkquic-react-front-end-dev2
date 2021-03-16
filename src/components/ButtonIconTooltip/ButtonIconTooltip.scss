@@ -1,0 +1,11 @@
+.button-icon-tooltip{
+  margin: .25rem 1rem;
+
+  @media (max-width: 991px){
+    margin: .25rem;
+  }
+  svg{
+    height: 24px;
+    fill: white;
+  }
+}

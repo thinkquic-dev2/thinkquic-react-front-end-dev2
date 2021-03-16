@@ -1,0 +1,64 @@
+.sidebar-item{
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__button{
+    width: 100%;
+    position: relative;
+    border: 0;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    transition: background 300ms;
+
+    &:hover{
+      background: white;
+
+      svg{
+        fill: gray;
+      }
+
+      &+.sidebar-item__tooltip{
+        left: calc(100% + 20px);
+        opacity: 1;
+      }
+    }
+  }
+
+  &--bottom{
+    margin-top: auto;
+  }
+
+  &__tooltip{
+    position: absolute;
+    left: -300px;
+    border-radius: 5px;
+    opacity: 0;
+    color: white;
+    padding: .5rem;
+    background-color: rgba(0,0,0,.9);
+    transition: opacity 500ms;
+
+    &::before{
+      position: absolute;
+      content: '';
+      height: 0;
+      width: 0;
+      border-top: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid rgba(0,0,0,.9);
+      left: -20px;
+      top: calc(50% - 10px);
+    }
+  }
+
+  svg{
+    width: 24px;
+    fill: white;
+    transition: fill 300ms;
+  }
+}

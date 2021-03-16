@@ -1,0 +1,42 @@
+.alert-modal{
+  position: fixed;
+  z-index: 10;
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__content{
+    margin-top: 3rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__message{
+    margin-top: 1rem;
+  }
+
+  &__close-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  &__close{
+    border: none;
+    border-radius: 5px;
+    background: #FF4747;
+    display: inline-block;
+    color: white;
+    padding: .5rem;
+
+    svg{
+      width: 24px;
+      fill: white;
+    }
+  }
+}

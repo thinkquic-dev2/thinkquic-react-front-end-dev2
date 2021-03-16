@@ -1,0 +1,59 @@
+.contact-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 0;
+    overflow: hidden;
+    background: #cfcece;
+    opacity: 0;
+   // overflow-y: auto;
+    transition: min-width 500ms, max-width 500ms, opacity 500ms ease-in-out;
+  
+      &--visible{
+        overflow: visible;
+        min-width: 40%;
+        max-width: 40%;
+        opacity: 1;
+    }
+    &__header{
+      display: flex;
+      background: transparent;
+      padding: .5rem;
+    }
+  
+    &__heading{
+      font-weight: bold;
+    }
+  
+      &__close-button{
+          border: none;
+          margin-left: auto;
+          border-radius: 5px;
+          background: #FF4747;
+      
+          svg{
+            width: 24px;
+            fill: white;
+          }
+        }
+  
+      &__avatar {
+        display: flex;
+      } 
+      &__info {
+        padding: 20px;
+        display: flex;
+        cursor: pointer;
+      }
+  
+      &__info > h2 {
+        border-bottom: 4px;
+        font-size: 14px;
+      }
+  
+      &__info:hover{
+        background-color: black;
+      }
+  }
+  

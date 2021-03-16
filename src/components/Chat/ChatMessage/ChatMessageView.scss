@@ -1,0 +1,33 @@
+.chat-message-view {
+    position: relative;
+    background-color: #000;
+    flex: 1;
+    //height: 55%;
+} 
+
+.chat {
+    max-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.msgview{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: end;
+
+    .message_body.me{
+        align-self: flex-end;
+    }
+
+    .msgtext{
+        display: block;
+    }
+}
+
+.bg {
+    background-color: #e4e7eb;
+}

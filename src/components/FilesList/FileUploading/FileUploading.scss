@@ -1,0 +1,42 @@
+.file-uploading{
+  position: relative;
+  margin: 0 .5rem;
+  padding: .5rem;
+  border: none;
+  border-radius: 5px;
+  max-width: 100%;
+  background: rgba(0,0,0,.2);
+
+  &__notifications{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__message{
+    font-weight: bold;
+  }
+
+  &__spinner{
+    margin: 0 1rem;
+  }
+
+
+  &__file{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  &__icon{
+    margin-right: .5rem;
+    svg{
+      width: 24px;
+    }
+  }
+
+  &__filename{
+    white-space: nowrap;
+  }
+}
