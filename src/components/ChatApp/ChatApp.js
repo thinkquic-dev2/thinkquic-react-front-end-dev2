@@ -45,6 +45,7 @@ import { useIdleTimer } from "react-idle-timer";
 import ChangePasswordContainer from "../ChangePassword/ChangePasswordContainer";
 import useConfig from "../../hooks/useConfig";
 import FileUploadToast from "../FileUploadToast/FileUploadToast";
+import Tour from "../Tour/Tour";
 
 const ChatApp = () => {
   const {
@@ -376,6 +377,7 @@ const ChatApp = () => {
               text={"My Profile"}
             />
             <ButtonIconLink clickHandler={() => settingsClickHandler("settings")} icon={gearIcon} text={"Settings"} />
+            <Tour />
             <SignOutButton
               signOutHandler={() => {
                 signOutHandler();

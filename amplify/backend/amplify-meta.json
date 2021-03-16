@@ -27,7 +27,7 @@
         "IdentityPoolName": "thinkquicreactfrontec8bc7eff_identitypool_c8bc7eff__dev",
         "UserPoolName": "thinkquicreactfrontec8bc7eff_userpool_c8bc7eff"
       },
-      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "lastPushTimeStamp": "2021-03-16T20:24:03.982Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/auth/thinkquicreactfrontec8bc7eff-cloudformation-template.yml",
         "logicalId": "auththinkquicreactfrontec8bc7eff"
@@ -44,7 +44,7 @@
         "Region": "us-west-2",
         "Id": "c4a87de1250246e491ab2d90d2db162f"
       },
-      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "lastPushTimeStamp": "2021-03-16T20:24:03.982Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
         "logicalId": "analyticsthinkquicreactfronte"
@@ -66,7 +66,7 @@
         "HostingBucketName": "thinkquicreactfronte-20210211155341-hostingbucket-dev",
         "CloudFrontDomainName": "d27nvasfpedpzh.cloudfront.net"
       },
-      "lastPushTimeStamp": "2021-03-02T19:32:23.294Z",
+      "lastPushTimeStamp": "2021-03-16T20:24:03.982Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-thinkquicreactfronte-dev-172345-deployment/amplify-cfn-templates/hosting/template.json",
         "logicalId": "hostingS3AndCloudFront"
